@@ -1,5 +1,5 @@
 {
-  "name": "sistema-ecommerce-cli",
+  "name": "sistemaecommercecli",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
@@ -12,39 +12,56 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^2.3.1",
-    "@angular/compiler": "^2.3.1",
-    "@angular/core": "^2.3.1",
-    "@angular/forms": "^2.3.1",
-    "@angular/http": "^2.3.1",
-    "@angular/platform-browser": "^2.3.1",
-    "@angular/platform-browser-dynamic": "^2.3.1",
-    "@angular/router": "^3.3.1",
+    "@angular/common": "^7.2.15",
+    "@angular/compiler": "^7.2.15",
+    "@angular/core": "^7.2.15",
+    "@angular/forms": "^7.2.15",
+    "@angular/http": "^7.2.15",
+    "@angular/platform-browser": "^7.2.15",
+    "@angular/platform-browser-dynamic": "^7.2.15",
+    "@angular/router": "^7.2.15",
     "bootstrap": "^4.3.1",
-    "core-js": "^2.4.1",
-    "jquery": "^3.3.1",
+    "core-js": "^2.6.6",
+    "jquery": "^3.4.1",
     "nyc": "^14.1.1",
-    "popper.js": "^1.14.7",
-    "rxjs": "^5.0.1",
+    "popper.js": "^1.15.0",
+    "rxjs": "^6.5.2",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "tslib": "^1.9.0",
+    "zone.js": "^0.8.29",
+    "rxjs-compat": "^6.0.0-rc.0"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^2.3.1",
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "^7.3.9",
+    "@angular/compiler-cli": "^7.2.15",
     "@types/jasmine": "2.5.38",
-    "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.28.3",
+    "@types/node": "^6.14.6",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
-    "karma": "1.2.0",
+    "karma": "^4.1.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
-    "karma-remap-istanbul": "^0.2.1",
-    "protractor": "~4.0.13",
+    "karma-remap-istanbul": "^0.6.0",
+    "protractor": "^6.0.0",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
-    "typescript": "~2.0.3"
-  }
+    "typescript": "~3.2.4"
+  },
+  "description": "This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cabomaldade/SistemaEcommerceCLI.git"
+  },
+  "keywords": [
+    "ab"
+  ],
+  "author": "andre",
+  "bugs": {
+    "url": "https://github.com/Cabomaldade/SistemaEcommerceCLI/issues"
+  },
+  "homepage": "https://github.com/Cabomaldade/SistemaEcommerceCLI#readme"
 }
