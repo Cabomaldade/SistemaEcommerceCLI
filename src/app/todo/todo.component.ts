@@ -1,16 +1,20 @@
-
-import { Component } from '@angular/core';
-
-import { TodoDataService } from './todo/todo-data.service';
-import {Todo} from './todo/todo';
+import { Component, OnInit } from '@angular/core';
+import { Todo } from './todo';
+import { TodoDataService } from './todo-data.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css']
 })
-export class AppComponent {
+export class TodoComponent implements OnInit {
+  //todoDataService: any;
+
+
+
+  ngOnInit() {
+
+  }
 
   newTodo: Todo = new Todo();
 
@@ -34,3 +38,7 @@ export class AppComponent {
     return this.todoDataService.getAllTodos();
   }
 }
+/*newTodo(newTodo: any) {
+  throw new Error("Method not implemented.");
+}*/
+

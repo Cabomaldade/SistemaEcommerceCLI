@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from './app.router';
 
+
 @NgModule({
   declarations: [
     AppComponent,
