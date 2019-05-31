@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.model.Cliente;
-import com.example.demo.service.ClienteRepository;
+import com.example.demo.repositories.ClienteRepository;
 
 @RestController
 @RequestMapping(value="/clientes")

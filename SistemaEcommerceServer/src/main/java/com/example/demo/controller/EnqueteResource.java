@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.model.Enquete;
-import com.example.demo.service.EnqueteRepository;
+import com.example.demo.repositories.EnqueteRepository;
 
 @RestController
 @RequestMapping(value="/enquete")
@@ -29,23 +30,22 @@ public class EnqueteResource {
 	@Autowired
 	private EnqueteRepository service;
 	
-	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Enquete>> findAll() {
 		List<Enquete> enquete = service.findAll();
 		return ResponseEntity.ok().body(enquete);
 	}
-		
-	@CrossOrigin
-	@PostMapping
-	public ResponseEntity<?> salvar(@Valid @RequestBody Enquete celular) {
-		service.save(celular);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-		        .buildAndExpand(celular.getId()).toUri();
-		return ResponseEntity.created(location).build();
-	}
 	
-	@CrossOrigin
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> insert(@RequestBody Enquete obj){
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder
+				.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
+		
+	}
+
 	@PutMapping
 	public ResponseEntity<?> atualizar(@Valid @RequestBody Enquete celular) {
 		service.save(celular);
