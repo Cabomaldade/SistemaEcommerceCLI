@@ -1,26 +1,30 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Enquete {
+@Entity
+public class Enquete implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String marca;
-	private int like,dislike;
+	private int liked,dislike;
 	
 	public Enquete() {
 		super();
 	}
 
-	public Enquete(Integer id, String marca, int like, int dislike) {
+	public Enquete(Integer id,String marca, int liked, int dislike) {
 		super();
 		this.id = id;
 		this.marca = marca;
-		this.like = like;
+		this.liked = liked;
 		this.dislike = dislike;
 	}
 
@@ -41,11 +45,11 @@ public class Enquete {
 	}
 
 	public int getLike() {
-		return like;
+		return liked;
 	}
 
-	public void setLike(int like) {
-		this.like = like;
+	public void setLike(int liked) {
+		this.liked = liked;
 	}
 
 	public int getDislike() {
