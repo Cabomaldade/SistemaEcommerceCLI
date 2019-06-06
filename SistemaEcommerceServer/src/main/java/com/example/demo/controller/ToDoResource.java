@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.demo.model.ToDo;
+import com.example.demo.domain.ToDo;
 import com.example.demo.repositories.ToDoRepository;
 
 
 @RestController
-@RequestMapping(value="/todo")
+@RequestMapping(value="/todos")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ToDoResource {
 	

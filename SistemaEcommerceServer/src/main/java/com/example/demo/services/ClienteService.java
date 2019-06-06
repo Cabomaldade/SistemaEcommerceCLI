@@ -11,7 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo.model.Cliente;
+
+import com.example.demo.domain.Cliente;
 import com.example.demo.repositories.ClienteRepository;
 
 @Service
@@ -25,24 +26,24 @@ public class ClienteService {
 	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName(), null));
 	}
 	
 	@Transactional
 	public Cliente insert(Cliente obj) {
-		obj.setId(null);
+		//obj.setId(null);
 		obj = repo.save(obj);
 		return obj;
 	}
 	
 	
-	public Cliente update(Cliente obj) {
+	/*public Cliente update(Cliente obj) {
 		Cliente newObj = find(obj.getCep());
 		updateData(newObj, obj);
 		return repo.save(newObj);
-	}
+	}*/
 	
-	public void delete(Integer id) {
+	public void delete(Integer id) throws Exception {
 		find(id);
 		try{
 			repo.deleteById(id);
@@ -61,7 +62,7 @@ public class ClienteService {
 		return repo.findAll(pageRequest);
 	}
 	
-	public Cliente fromDTO(ClienteDTO objDto) {
+	/*public Cliente fromDTO(ClienteDTO objDto) {
 		return new Cliente(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
 	}
 	
@@ -83,6 +84,6 @@ public class ClienteService {
 	private void updateData(Cliente newObj, Cliente obj) {
 		newObj.setNome(obj.getNome());
 		newObj.setEmail(obj.getEmail());
-	}
+	}*/
 	
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.example.demo.model.Cliente;
+import com.example.demo.domain.Cliente;
 import com.example.demo.repositories.ClienteRepository;
 
 @RestController
@@ -30,14 +31,12 @@ public class ClienteResource {
 	@Autowired
 	private ClienteRepository service;
 	
-	@CrossOrigin
 	@GetMapping
 	public ResponseEntity<List<Cliente>> findAll() {
-		List<Cliente> alunos = service.findAll();
-		return ResponseEntity.ok().body(alunos);
+		List<Cliente> clientes = service.findAll();
+		return ResponseEntity.ok().body(clientes);
 	}
 		
-	@CrossOrigin
 	@PostMapping
 	public ResponseEntity<?> salvar(@Valid @RequestBody Cliente cliente) {
 		service.save(cliente);
@@ -46,14 +45,13 @@ public class ClienteResource {
 		return ResponseEntity.created(location).build();
 	}
 	
-	@CrossOrigin
+
 	@PutMapping
 	public ResponseEntity<?> atualizar(@Valid @RequestBody Cliente cliente) {
 		service.save(cliente);
 	    return ResponseEntity.noContent().build();
 	}
-	
-	@CrossOrigin
+
 	@DeleteMapping(value="{codigo}")
 	public ResponseEntity<?> excluir(@PathVariable Integer codigo) {
 		try {
