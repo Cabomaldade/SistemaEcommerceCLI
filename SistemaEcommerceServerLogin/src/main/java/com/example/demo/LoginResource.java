@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,14 +25,22 @@ public class LoginResource {
 	@PostMapping
 	public ResponseEntity<?> login(@Valid @RequestBody Login login) {
 		
+		System.out.println(login.getEmail());
+		System.out.println(login.getPassword());
+		
 		loginTemp = service.findByEmail(login.getEmail());
 		
+		//System.out.println(loginTemp.getEmail());
+		
 		if( loginTemp == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			return ResponseEntity.notFound().build();
 		} else if(!loginTemp.getPassword().equals(login.getPassword())){
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+			
+			return ResponseEntity.badRequest().build();
 		}
-		return ResponseEntity.ok().build();
+		
+		loginTemp.setPassword("Pensou que ia ver o password ne bobao");
+		return ResponseEntity.ok().body(loginTemp);
 	}
 	
 	
